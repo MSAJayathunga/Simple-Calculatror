@@ -68,7 +68,7 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
     return Padding(
       padding: const EdgeInsets.all(4.0),
       child: Material(
-        // color: getBtnColor(value),
+        color: getBtnColor(value),
         clipBehavior: Clip.hardEdge,
         shape: OutlineInputBorder(
           borderSide: const BorderSide(
@@ -240,5 +240,19 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
     }
 
     setState(() {});
+  }
+    Color getBtnColor(value) {
+    return [Btn.del, Btn.clr].contains(value)
+        ? Colors.blueGrey
+        : [
+            Btn.per,
+            Btn.multiply,
+            Btn.add,
+            Btn.subtract,
+            Btn.divide,
+            Btn.calculate,
+          ].contains(value)
+            ? Colors.orange
+            : Colors.black87;
   }
 }
